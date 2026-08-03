@@ -290,7 +290,7 @@ p { margin: 0; }
 .visit-inner { max-width: 760px; margin: 0 auto; text-align: center; }
 .visit-section h2 { color: var(--white); font-size: clamp(1.8rem, 3.5vw, 2.6rem); }
 .visit-lede { color: rgba(255,255,255,0.88); margin: 16px auto 40px; max-width: 480px; }
-.visit-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.visit-cards { display: grid; grid-template-columns: 1fr; max-width: 360px; margin: 0 auto; gap: 20px; }
 .visit-card {
   background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); border-radius: var(--radius);
   padding: 30px 26px; text-decoration: none; color: var(--white); text-align: left;
@@ -307,7 +307,7 @@ p { margin: 0; }
 
 /* ============ Footer ============ */
 .site-footer { background: #1E1A16; color: rgba(255,255,255,0.75); padding: 60px 24px 30px; }
-.footer-inner { max-width: var(--container); margin: 0 auto; display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr 1fr; gap: 30px; }
+.footer-inner { max-width: var(--container); margin: 0 auto; display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 30px; }
 .footer-logo { height: 34px; margin-bottom: 14px; }
 .footer-brand p { font-size: 0.86rem; color: rgba(255,255,255,0.6); max-width: 240px; }
 .footer-social { display: flex; gap: 14px; margin-top: 16px; }
@@ -318,31 +318,6 @@ p { margin: 0; }
 .footer-col a { display: block; font-size: 0.86rem; color: rgba(255,255,255,0.75); text-decoration: none; margin-bottom: 8px; }
 .footer-col a:hover { color: var(--gold); }
 .footer-copy { text-align: center; font-size: 0.78rem; color: rgba(255,255,255,0.4); margin-top: 50px; }
-
-/* ============ Campus picker modal ============ */
-.picker-overlay {
-  position: fixed; inset: 0; background: rgba(20,16,12,0.55); z-index: 300;
-  display: flex; align-items: center; justify-content: center; padding: 20px;
-  opacity: 0; pointer-events: none; transition: opacity 0.2s ease;
-}
-.picker-overlay.open { opacity: 1; pointer-events: auto; }
-.picker-modal {
-  background: var(--white); border-radius: var(--radius); padding: 34px 30px; max-width: 420px; width: 100%;
-  position: relative; box-shadow: var(--shadow-md); transform: translateY(10px); transition: transform 0.2s ease;
-}
-.picker-overlay.open .picker-modal { transform: translateY(0); }
-.picker-modal h3 { font-size: 1.3rem; margin-bottom: 8px; }
-.picker-modal p { color: var(--ink-soft); font-size: 0.9rem; margin-bottom: 22px; }
-.picker-close { position: absolute; top: 16px; right: 16px; background: none; border: none; font-size: 1.6rem; cursor: pointer; color: var(--ink-soft); line-height: 1; }
-.picker-options { display: flex; flex-direction: column; gap: 12px; }
-.picker-option {
-  display: flex; flex-direction: column; align-items: flex-start; gap: 3px;
-  padding: 16px 18px; border: 2px solid var(--line); border-radius: 10px; background: none;
-  cursor: pointer; text-align: left; transition: border-color 0.15s ease, background 0.15s ease;
-}
-.picker-option:hover { border-color: var(--red); background: var(--red-tint); }
-.picker-option strong { font-family: var(--font-display); font-size: 1.05rem; }
-.picker-option span { font-size: 0.82rem; color: var(--ink-soft); }
 
 /* ============ Floating CTA ============ */
 .float-cta {

@@ -1,22 +1,7 @@
 (function () {
   "use strict";
 
-  var CAMPUSES = {
-    kovan: {
-      name: "Kovan",
-      phone: "+6588064598",
-      phoneLabel: "8806 4598",
-      wa: "https://wa.me/6588064598?text=Hi%20Camberley%20Pre-School%20(Kovan)!%20I%27d%20like%20to%20book%20a%20centre%20visit%20for%20my%20child."
-    },
-    loyang: {
-      name: "Loyang",
-      phone: "+6588541677",
-      phoneLabel: "8854 1677",
-      wa: "https://wa.me/6588541677?text=Hi%20Camberley%20Pre-School%20(Loyang)!%20I%27d%20like%20to%20book%20a%20centre%20visit%20for%20my%20child."
-    }
-  };
-
-  var STORAGE_KEY = "camberley_campus";
+  var LOYANG_WA = "https://wa.me/6588541677?text=Hi%20Camberley%20Pre-School!%20I%27d%20like%20to%20book%20a%20centre%20visit%20for%20my%20child.";
 
   /* ---------- Header scroll state ---------- */
   var header = document.getElementById("siteHeader");
@@ -50,84 +35,19 @@
     a.addEventListener("click", closeNav);
   });
 
-  /* ---------- Campus picker modal ---------- */
-  var overlay = document.getElementById("pickerOverlay");
-  var pickerClose = document.getElementById("pickerClose");
-  var pickerOptions = document.querySelectorAll(".picker-option");
-  var pendingHref = null; // if a specific visit-card link was clicked, we could honor it directly
-
-  function openPicker() {
-    overlay.classList.add("open");
-  }
-  function closePicker() {
-    overlay.classList.remove("open");
-  }
-  pickerClose.addEventListener("click", closePicker);
-  overlay.addEventListener("click", function (e) {
-    if (e.target === overlay) closePicker();
-  });
-
-  function setCampus(key) {
-    try { localStorage.setItem(STORAGE_KEY, key); } catch (e) {}
-    applyCampus(key);
-  }
-
-  function getCampus() {
-    try { return localStorage.getItem(STORAGE_KEY); } catch (e) { return null; }
-  }
-
-  function applyCampus(key) {
-    var c = CAMPUSES[key];
-    var phoneQuick = document.getElementById("phoneQuickLabel");
-    var phoneLink = document.getElementById("phoneQuick");
-    var floatLabel = document.getElementById("floatCtaLabel");
-    if (c) {
-      if (phoneQuick) phoneQuick.textContent = "Call " + c.name;
-      if (phoneLink) phoneLink.setAttribute("href", "tel:" + c.phone);
-      if (floatLabel) floatLabel.textContent = "WhatsApp " + c.name;
-    }
-  }
-
-  pickerOptions.forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      var key = btn.getAttribute("data-campus");
-      setCampus(key);
-      closePicker();
-      window.open(CAMPUSES[key].wa, "_blank", "noopener");
-    });
-  });
-
-  /* Any element with data-open-visit: if campus already chosen, go straight to WhatsApp; else open picker */
+  /* ---------- Book a visit CTAs: straight to WhatsApp ---------- */
   document.querySelectorAll("[data-open-visit]").forEach(function (el) {
-    el.addEventListener("click", function (e) {
-      var key = getCampus();
-      if (key && CAMPUSES[key]) {
-        window.open(CAMPUSES[key].wa, "_blank", "noopener");
-      } else {
-        openPicker();
-      }
+    el.addEventListener("click", function () {
+      window.open(LOYANG_WA, "_blank", "noopener");
     });
   });
 
-  /* Floating CTA: direct to remembered campus, else open picker */
   var floatCta = document.getElementById("floatCta");
-  floatCta.addEventListener("click", function () {
-    var key = getCampus();
-    if (key && CAMPUSES[key]) {
-      window.open(CAMPUSES[key].wa, "_blank", "noopener");
-    } else {
-      openPicker();
-    }
-  });
-
-  /* Phone quick link: default to Kovan until a campus is chosen */
-  (function initPhoneAndFloat() {
-    var key = getCampus();
-    applyCampus(key || "kovan");
-    if (!document.getElementById("phoneQuick").getAttribute("href") || document.getElementById("phoneQuick").getAttribute("href") === "#") {
-      document.getElementById("phoneQuick").setAttribute("href", "tel:" + CAMPUSES.kovan.phone);
-    }
-  })();
+  if (floatCta) {
+    floatCta.addEventListener("click", function () {
+      window.open(LOYANG_WA, "_blank", "noopener");
+    });
+  }
 
   /* ---------- FAQ accordion ---------- */
   document.querySelectorAll(".faq-q").forEach(function (btn) {
