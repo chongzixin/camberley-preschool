@@ -2,9 +2,10 @@
    Camberley Pre-School — Design Tokens
    ============================================ */
 :root {
-  --red: #C63A31;
+  --red: #CC3C34;
   --red-dark: #9A2C25;
   --red-tint: #FBE8E5;
+  --navy: #1E3A5F;
   --moss: #4B7566;
   --moss-dark: #375A4E;
   --gold: #DFA23A;
@@ -14,7 +15,6 @@
   --ink-soft: #6B6058;
   --line: #E4D8C3;
   --white: #FFFFFF;
-  --ink-deep: #1E1A16;
 
   --font-display: "Fraunces", Georgia, serif;
   --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -98,7 +98,7 @@ p { margin: 0; }
 
 /* ============ Utility bar ============ */
 .utility-bar {
-  background: var(--ink);
+  background: var(--navy);
   color: var(--white);
   font-size: 0.82rem;
   text-align: center;
@@ -154,9 +154,8 @@ p { margin: 0; }
 
 /* ============ Sections ============ */
 .section { max-width: var(--container); margin: 0 auto; padding: 84px 24px; }
-.section-tint { background: var(--sand); max-width: none; }
-.section-tint > * { max-width: var(--container); margin-left: auto; margin-right: auto; }
-.section-tint .campus-card { max-width: var(--container); margin-left: auto; margin-right: auto; }
+.section-tint { background: var(--sand); max-width: none; padding: 0; }
+.section-inner { max-width: var(--container); margin: 0 auto; padding: 84px 24px; }
 .section-head { max-width: 640px; margin-bottom: 44px; }
 .section-head h2 { font-size: clamp(1.7rem, 3.2vw, 2.4rem); }
 .section-lede { margin-top: 14px; color: var(--ink-soft); font-size: 1.05rem; }
@@ -172,8 +171,8 @@ p { margin: 0; }
 .feature-card h3 { font-size: 1.1rem; margin-bottom: 8px; }
 .feature-card p { color: var(--ink-soft); font-size: 0.92rem; }
 
-.section-photo { margin-top: 40px; }
-.section-photo img { width: 100%; max-height: 360px; object-fit: cover; border-radius: var(--radius); box-shadow: var(--shadow-sm); display: block; }
+.section-photo { margin-top: 44px; max-width: 680px; }
+.section-photo img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: var(--radius); box-shadow: var(--shadow-sm); display: block; }
 
 /* ============ Ratio Visualizer ============ */
 .ratio-viz-wrap {
@@ -253,9 +252,10 @@ p { margin: 0; }
 .testimonial-dots { display: flex; justify-content: center; gap: 9px; margin-top: 22px; }
 .testimonial-dots button { width: 9px; height: 9px; border-radius: 50%; border: none; background: var(--line); cursor: pointer; padding: 0; }
 .testimonial-dots button.active { background: var(--red); }
+#parents { padding-bottom: 40px; }
 
 /* ============ FAQ ============ */
-.faq-list { max-width: 760px; }
+#faq { padding-top: 40px; }
 .faq-item { border-bottom: 1px solid var(--line); }
 .faq-q {
   width: 100%; text-align: left; background: none; border: none; cursor: pointer;
@@ -271,7 +271,7 @@ p { margin: 0; }
 .faq-a p { padding: 0 4px 20px; color: var(--ink-soft); font-size: 0.95rem; max-width: 620px; }
 
 /* ============ Footer ============ */
-.site-footer { background: var(--ink-deep); color: rgba(255,255,255,0.75); padding: 60px 24px 30px; }
+.site-footer { background: var(--navy); color: rgba(255,255,255,0.75); padding: 60px 24px 30px; }
 .footer-inner { max-width: var(--container); margin: 0 auto; display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 30px; }
 .footer-logo { height: 34px; margin-bottom: 14px; }
 .footer-brand p { font-size: 0.86rem; color: rgba(255,255,255,0.6); max-width: 240px; }
@@ -314,6 +314,7 @@ p { margin: 0; }
   .hero-content { padding: 40px 18px 44px; }
   .hero-facts { gap: 18px; }
   .section { padding: 56px 18px; }
+  .section-inner { padding: 56px 18px; }
   .ratio-viz-wrap { padding: 26px 20px; }
   .footer-inner { grid-template-columns: 1fr; }
   .utility-msg { display: block; }
