@@ -172,6 +172,9 @@ p { margin: 0; }
 .feature-card h3 { font-size: 1.1rem; margin-bottom: 8px; }
 .feature-card p { color: var(--ink-soft); font-size: 0.92rem; }
 
+.section-photo { margin-top: 40px; }
+.section-photo img { width: 100%; max-height: 360px; object-fit: cover; border-radius: var(--radius); box-shadow: var(--shadow-sm); display: block; }
+
 /* ============ Ratio Visualizer ============ */
 .ratio-viz-wrap {
   margin-top: 56px; background: var(--sand); border-radius: var(--radius);
