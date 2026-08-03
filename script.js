@@ -91,12 +91,16 @@
       window.requestAnimationFrame(updateActive);
     }, { passive: true });
 
-    var autoplay = setInterval(function () {
-      var i = Math.round(track.scrollLeft / track.clientWidth);
-      var next = (i + 1) % slides.length;
-      goTo(next);
-    }, 6000);
-    track.addEventListener("pointerdown", function () { clearInterval(autoplay); });
+    var prefersReducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!prefersReducedMotion) {
+      var autoplay = setInterval(function () {
+        var i = Math.round(track.scrollLeft / track.clientWidth);
+        var next = (i + 1) % slides.length;
+        goTo(next);
+      }, 6000);
+      track.addEventListener("pointerdown", function () { clearInterval(autoplay); });
+      track.addEventListener("focusin", function () { clearInterval(autoplay); });
+    }
   }
 
   /* ---------- Ratio visualizer: build dots + reveal on scroll ---------- */

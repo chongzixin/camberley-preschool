@@ -14,6 +14,7 @@
   --ink-soft: #6B6058;
   --line: #E4D8C3;
   --white: #FFFFFF;
+  --ink-deep: #1E1A16;
 
   --font-display: "Fraunces", Georgia, serif;
   --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -57,7 +58,6 @@ p { margin: 0; }
   font-weight: 600;
   margin: 0 0 10px;
 }
-.eyebrow-light { color: var(--gold); }
 
 :focus-visible {
   outline: 3px solid var(--gold);
@@ -89,7 +89,6 @@ p { margin: 0; }
 .btn-ghost { background: rgba(255,255,255,0.14); border-color: rgba(255,255,255,0.6); color: var(--white); backdrop-filter: blur(4px); }
 .btn-ghost:hover { background: rgba(255,255,255,0.26); }
 .btn-lg { padding: 16px 30px; font-size: 1rem; }
-.btn-header { display: none; }
 .link-cta {
   background: none; border: none; padding: 0; margin-top: 14px;
   font-family: var(--font-body); font-weight: 700; color: var(--red);
@@ -169,7 +168,7 @@ p { margin: 0; }
 .section { max-width: var(--container); margin: 0 auto; padding: 84px 24px; }
 .section-tint { background: var(--sand); max-width: none; }
 .section-tint > * { max-width: var(--container); margin-left: auto; margin-right: auto; }
-.section-tint .campus-card, .section-tint .ratio-viz { max-width: var(--container); margin-left: auto; margin-right: auto; }
+.section-tint .campus-card { max-width: var(--container); margin-left: auto; margin-right: auto; }
 .section-head { max-width: 640px; margin-bottom: 44px; }
 .section-head h2 { font-size: clamp(1.7rem, 3.2vw, 2.4rem); }
 .section-lede { margin-top: 14px; color: var(--ink-soft); font-size: 1.05rem; }
@@ -186,6 +185,12 @@ p { margin: 0; }
 .feature-card p { color: var(--ink-soft); font-size: 0.92rem; }
 
 /* ============ Ratio Visualizer ============ */
+.ratio-viz-wrap {
+  margin-top: 56px; background: var(--sand); border-radius: var(--radius);
+  padding: 40px 36px;
+}
+.ratio-viz-wrap h3 { font-size: 1.4rem; margin-bottom: 10px; }
+.ratio-viz-wrap .section-lede { margin-top: 0; margin-bottom: 26px; max-width: 640px; }
 .ratio-viz { display: flex; flex-direction: column; gap: 18px; }
 .ratio-legend { display: flex; gap: 22px; font-size: 0.82rem; color: var(--ink-soft); margin-bottom: 6px; }
 .legend-item { display: flex; align-items: center; gap: 7px; }
@@ -265,9 +270,14 @@ p { margin: 0; }
 .testimonial-dots button.active { background: var(--red); }
 
 /* Instagram / social */
-.school-life { text-align: center; }
-.school-life .section-head { margin-left: auto; margin-right: auto; text-align: center; }
-.social-links { display: flex; gap: 14px; justify-content: center; }
+.school-life-band {
+  max-width: var(--container); margin: 0 auto; padding: 40px 24px;
+  display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap;
+  text-align: center; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+}
+.school-life-text { color: var(--ink-soft); font-size: 0.98rem; }
+.school-life-text strong { color: var(--ink); }
+.social-links { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
 /* ============ FAQ ============ */
 .faq-list { max-width: 760px; }
@@ -285,28 +295,8 @@ p { margin: 0; }
 .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.25s ease; }
 .faq-a p { padding: 0 4px 20px; color: var(--ink-soft); font-size: 0.95rem; max-width: 620px; }
 
-/* ============ Visit section ============ */
-.visit-section { background: var(--red); color: var(--white); padding: 90px 24px; }
-.visit-inner { max-width: 760px; margin: 0 auto; text-align: center; }
-.visit-section h2 { color: var(--white); font-size: clamp(1.8rem, 3.5vw, 2.6rem); }
-.visit-lede { color: rgba(255,255,255,0.88); margin: 16px auto 40px; max-width: 480px; }
-.visit-cards { display: grid; grid-template-columns: 1fr; max-width: 360px; margin: 0 auto; gap: 20px; }
-.visit-card {
-  background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); border-radius: var(--radius);
-  padding: 30px 26px; text-decoration: none; color: var(--white); text-align: left;
-  transition: background 0.18s ease, transform 0.18s ease;
-}
-.visit-card:hover { background: rgba(255,255,255,0.18); transform: translateY(-3px); }
-.visit-card h3 { font-size: 1.4rem; color: var(--white); }
-.visit-card p { color: rgba(255,255,255,0.8); font-size: 0.88rem; margin: 8px 0 18px; }
-.visit-cta { display: block; font-weight: 700; color: var(--gold); margin-bottom: 8px; }
-.visit-call { font-size: 0.85rem; color: rgba(255,255,255,0.85); }
-.visit-call a { color: var(--white); text-decoration: underline; }
-.visit-email { margin-top: 34px; color: rgba(255,255,255,0.85); }
-.visit-email a { color: var(--white); font-weight: 700; }
-
 /* ============ Footer ============ */
-.site-footer { background: #1E1A16; color: rgba(255,255,255,0.75); padding: 60px 24px 30px; }
+.site-footer { background: var(--ink-deep); color: rgba(255,255,255,0.75); padding: 60px 24px 30px; }
 .footer-inner { max-width: var(--container); margin: 0 auto; display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 30px; }
 .footer-logo { height: 34px; margin-bottom: 14px; }
 .footer-brand p { font-size: 0.86rem; color: rgba(255,255,255,0.6); max-width: 240px; }
@@ -334,7 +324,6 @@ p { margin: 0; }
 @media (max-width: 980px) {
   .main-nav { display: none; }
   .nav-toggle { display: block; }
-  .btn-header { display: none; }
   .stat-strip { grid-template-columns: repeat(2, 1fr); }
   .stat:nth-child(2) { border-left: none; }
   .stat:nth-child(3), .stat:nth-child(1) { border-top: 1px solid rgba(255,255,255,0.12); }
@@ -343,7 +332,6 @@ p { margin: 0; }
   .campus-media img { min-height: 220px; }
   .campus-body, .campus-map { grid-column: 1; }
   .footer-inner { grid-template-columns: 1fr 1fr; }
-  .visit-cards { grid-template-columns: 1fr; }
   .ratio-row { grid-template-columns: 1fr; text-align: left; gap: 10px; }
   .ratio-figure { text-align: left; }
 }
@@ -351,9 +339,12 @@ p { margin: 0; }
 @media (max-width: 620px) {
   .header-inner { padding: 10px 16px; }
   .phone-quick span { display: none; }
+  .hero { min-height: 74vh; }
   .hero-content { padding: 40px 18px 44px; }
   .hero-facts { gap: 18px; }
   .section { padding: 56px 18px; }
+  .school-life-band { padding: 28px 18px; }
+  .ratio-viz-wrap { padding: 26px 20px; }
   .footer-inner { grid-template-columns: 1fr; }
   .utility-msg { display: block; }
   .float-cta span { display: none; }
