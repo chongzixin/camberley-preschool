@@ -325,7 +325,7 @@ p { margin: 0; }
   .hero-facts { gap: 18px; }
   .section:not(.section-tint) { padding: 44px 18px; }
   .section-inner { padding: 44px 18px; }
-  .ratio-viz-wrap { padding: 26px 20px; }
+  .ratio-viz-wrap { padding: 26px 0; }
   .footer-inner { grid-template-columns: 1fr; }
   .utility-msg { display: block; }
   .float-cta span { display: none; }
