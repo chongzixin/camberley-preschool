@@ -66,43 +66,6 @@
     });
   });
 
-  /* ---------- Testimonial slider ---------- */
-  var track = document.getElementById("testimonialTrack");
-  var dotsWrap = document.getElementById("testimonialDots");
-  if (track) {
-    var slides = Array.prototype.slice.call(track.children);
-    slides.forEach(function (_, i) {
-      var dot = document.createElement("button");
-      if (i === 0) dot.className = "active";
-      dot.setAttribute("aria-label", "Show testimonial " + (i + 1));
-      dot.addEventListener("click", function () { goTo(i); });
-      dotsWrap.appendChild(dot);
-    });
-    var dots = Array.prototype.slice.call(dotsWrap.children);
-
-    function goTo(i) {
-      track.scrollTo({ left: track.clientWidth * i, behavior: "smooth" });
-    }
-    function updateActive() {
-      var i = Math.round(track.scrollLeft / track.clientWidth);
-      dots.forEach(function (d, idx) { d.classList.toggle("active", idx === i); });
-    }
-    track.addEventListener("scroll", function () {
-      window.requestAnimationFrame(updateActive);
-    }, { passive: true });
-
-    var prefersReducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (!prefersReducedMotion) {
-      var autoplay = setInterval(function () {
-        var i = Math.round(track.scrollLeft / track.clientWidth);
-        var next = (i + 1) % slides.length;
-        goTo(next);
-      }, 6000);
-      track.addEventListener("pointerdown", function () { clearInterval(autoplay); });
-      track.addEventListener("focusin", function () { clearInterval(autoplay); });
-    }
-  }
-
   /* ---------- Ratio visualizer: build dots + reveal on scroll ---------- */
   document.querySelectorAll(".ratio-row").forEach(function (row) {
     var ecdaN = parseInt(row.getAttribute("data-ecda"), 10);
