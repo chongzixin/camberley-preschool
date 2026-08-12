@@ -56,7 +56,7 @@ p { margin: 0; }
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--red);
-  font-weight: 600;
+  font-weight: 800;
   margin: 0 0 10px;
 }
 
@@ -156,6 +156,7 @@ p { margin: 0; }
 .section-head { max-width: 640px; margin: 0 auto 34px; text-align: center; }
 .section-head h2 {
   font-size: clamp(1.7rem, 3.2vw, 2.4rem);
+  font-weight: 800;
   position: relative; display: inline-block; padding-bottom: 18px;
 }
 .section-head h2::after {
