@@ -345,6 +345,7 @@ p { margin: 0; }
   .utility-msg { display: block; }
   .float-cta span { display: none; }
   .float-cta { padding: 15px; }
+  .testimonial-panel-media img { aspect-ratio: auto; object-fit: contain; object-position: center; }
 }
 
 /* Mobile nav drawer */
